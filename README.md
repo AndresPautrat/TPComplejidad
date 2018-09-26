@@ -21,7 +21,7 @@ UCS:La búsqueda uniforme de costos es el mejor algoritmo para un problema de b�
 Para la implementación se usó este algoritmo a la inversa de modo que se busque visitar los nodos más lejanos y luego debido a que no habrá más opciones y la ruta ira acercándose al punto de origen. Hemos decidido implementarlo así ya que previamente hemos encontrado las 10 rutas más cercanas de cada ciudad, y al alejarse e ir acercándose al final se tendrá casi segura una ruta que se dirija a la ciudad de origen, no como el caso contrario que las ultimas conexiones se harán con los nodos más lejanos.
 
 #### Tiempo asintótico  
-UCS:
+##### UCS:
 El tiempo asintótico que presenta el UCS es de si el factor de bifurcación es b, cada vez que expandes un nodo, encontrarás k más nodos. Por lo tanto, hay 
  
 - 1 nodo en el nivel 0 
@@ -33,6 +33,8 @@ El tiempo asintótico que presenta el UCS es de si el factor de bifurcación es 
 
 Entonces, supongamos que la búsqueda se detiene después de que alcanzas el nivel k. Cuando esto sucede, la cantidad total de nodos que habrá visitado será    
 1 + b + b2 + ... + bk = (bk+1 - 1) / (b - 1)
+##### Backtraking
+O(n)=n!
 
 #### Conclusiones 
 Una solución óptima para resolver el problema será utilizar un método divide y vencerás para partir a la cantidad de nodos en segmentos más pequeños dentro de los cuales podemos encontrar el camino más corto entre 2 nodos alejados usando el algoritmo de UCS y luego conectar a los diferentes segmentos formados con los caminos más cortos para pasar dentro de los mismos.  
