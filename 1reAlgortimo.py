@@ -33,20 +33,47 @@ def UCS(G,s,t):
                 hp.heappush(queue,(f,v))
     return path, weight
 
-a = LeerListAP('LAP2.txt')
-
-path, weight= UCS(a,0,145224)
-
-def camino(path,s):
+def camino(path,s,t):
     lista=[]
     h = n = s
-    while n != 0:
+    while n != t:
         n=path[h]
         lista.append(n)
         h =n
     print(len(lista))
     print('Porcentaje resuelto: ',(len(lista)/145224)*100)
-    return print(lista)
+    return lista
+a = LeerListAP('LAP2.txt')
+#145224
+sg=0
+tg=2017
+b=0
 
-camino(path,145224)
+print('Ida')
+print('\n')
+for i in range(72):
+    path, weight = UCS(a,sg,tg)
+    print(camino(path,tg,sg))
+    r=len(camino(path,tg,sg))
+    r=r+b
+    b=r
+    sg+=2017
+    tg+=2017
+print('porcentaje resuelto', (r/145224)*100)
+
+print('Regreso')
+print('\n')
+
+sg=0
+tg=8068
+
+for i in range(18):
+    path, weight = UCS(a,sg,tg)
+    print(camino(path,tg,sg))
+    r=len(camino(path,tg,sg))
+    r=r+b
+    b=r
+    sg+=8068
+    tg+=8068
+print('porcentaje resuelto', (r/145224)*100)
 
