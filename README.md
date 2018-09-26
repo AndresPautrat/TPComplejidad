@@ -33,8 +33,9 @@ El tiempo asintótico que presenta el UCS es de si el factor de bifurcación es 
 
 Entonces, supongamos que la búsqueda se detiene después de que alcanzas el nivel k. Cuando esto sucede, la cantidad total de nodos que habrá visitado será    
 1 + b + b2 + ... + bk = (bk+1 - 1) / (b - 1)
-##### Backtraking
-O(n)=n!
+##### Backtraking 
+O(n)=n!   
+En caso de que cada nodo solo se conecte por 10 caminos con otros 10 nodos el O(n)=10^n
 
 #### Conclusiones 
 Una solución óptima para resolver el problema será utilizar un método divide y vencerás para partir a la cantidad de nodos en segmentos más pequeños dentro de los cuales podemos encontrar el camino más corto entre 2 nodos alejados usando el algoritmo de UCS y luego conectar a los diferentes segmentos formados con los caminos más cortos para pasar dentro de los mismos.  
