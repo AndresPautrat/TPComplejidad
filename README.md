@@ -14,7 +14,7 @@ Encontrar una solución con los conocimientos adquiridos hasta el momento en el 
 - Encontrar algoritmo que nos permita solucionar el problema en un porcentaje mayor al 50%. 
 - Graficar de una manera visible ordenada el camino resultante del algoritmo
 #### Marco teorico
-Los algoritmos que en los cuales nos estamos basando son el UCS(Uniform Cost Solution),DFS y backtraking.  
+Los algoritmos que en los cuales nos estamos basando son el UCS(Uniform Cost Solution) y backtraking.  
 UCS:La búsqueda uniforme de costos es el mejor algoritmo para un problema de búsqueda, que no implica el uso de heurísticas. Puede resolver cualquier gráfico general para un costo óptimo. UCS porque suena búsquedas en nodos que tienen más o menos el mismo costo.  
 -Otro algoritmo utilizado para solucionar el problema es Greed Search el cual se basa en ir recorriendo solo los caminos que estén más cerca del nodo de inicio, y dejando el primer nodo para que sea el último en conectarse cuando ya no haya otra opción. El algoritmo hace que se recorran todos los nodos y que se termine por el inicio. Esta no es la solución más optima, que encuentre el mejor camino, sin embargo, el resultado muestra un camino bastante corto. Sin embargo, habrá momentos en los que no se encontraran más rutas o que la única ruta disponible será volver al inicio sin haber recorrido todos los nodos, debido a esto se implemente un método de back tracking para retroceder y tomar otra ruta en estos casos.   
 
@@ -36,8 +36,14 @@ Entonces, supongamos que la búsqueda se detiene después de que alcanzas el niv
 ##### Backtraking 
 O(n)=n!   
 En caso de que cada nodo solo se conecte por 10 caminos con otros 10 nodos el O(n)=10^n
+##### Branch & Bound
+Tiempo asintótico = O(n^2 * 2^n)
+
+Branch & Bound es una variante mejorada de backtracking que consiste en expandir las ramas con posibles soluciones y podar las que se alejan mucho de estas. Tiene mucha similitud con el algoritmo UCS y hasta se suele decir que son casi iguales. Sin embargo, B&B se suele usar para problemas de optimización combinatoria. Este algoritmo tiene cierta influencia sobre algunos informados, como por ejemplo el A*.
 
 #### Conclusiones 
 Una solución óptima para resolver el problema será utilizar un método divide y vencerás para partir a la cantidad de nodos en segmentos más pequeños dentro de los cuales podemos encontrar el camino más corto entre 2 nodos alejados usando el algoritmo de UCS y luego conectar a los diferentes segmentos formados con los caminos más cortos para pasar dentro de los mismos.  
 Con los algoritmos aprendidos hasta el momento en el curso de Complejidad Algorítmica encontrar una solución que conecte los nodos al 100% pasando por la ruta más corta sería un proceso extremadamente largo por lo que solo se intenta encontrar una solución que soluciona el problema en un porcentaje menos al 100%.    
 Utilizar fuerza bruta para solucionar problemas tan grandes tiene un tiempo extremadamente extenso por lo que no es una solución óptima para este problema.
+
+
