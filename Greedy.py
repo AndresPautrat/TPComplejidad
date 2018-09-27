@@ -1,15 +1,9 @@
 
-# coding: utf-8
-
-# In[ ]:
-
-
 import heapq as hp
 from math import sqrt
 def asd(x):
     num = x.split(',')
     return int(num[0]),float(num[1])
-
 def LeerListAP(filename):
     G=[]
     file= open(filename)
@@ -22,7 +16,7 @@ def Leerxy(filename):
     file= open(filename)
     for line in file:
         s=str(line)[:len(str(line))-1]
-        G+=[[float(s.split(';')[2]),float(s.split(';')[3])]]
+        G+=[[float(s.split(',')[0]),float(s.split(',')[1])]]
     file.close()
     return G
 def distancias_init(init,xy):
@@ -31,10 +25,12 @@ def distancias_init(init,xy):
         distancias+=[sqrt((i[0]-xy[init][0])**2 + (i[1]-xy[init][1])**2)]
     return distancias
 def Greedy(visited,conex,distancias,init,actual,sol,paso):
+    if paso%100==0:
+        print("Nodo ",actual,", Recorridos: ",paso," de ", len(visited))
     visited[actual]=True
     if init==actual:
         if paso!=0:
-            if paso==len(conex)-1:
+            if paso>188:
                 sol[paso]=init
                 return True
             else: return False
@@ -54,13 +50,13 @@ def Greedy(visited,conex,distancias,init,actual,sol,paso):
                 completado= True
                 break
             else: visited[dsts[j][0]]=False
-
     return completado
     
 conec=LeerListAP("LAP2.txt")
-dst=distancias_init(0,Leerxy('BDO.txt'))
+dst=distancias_init(0,Leerxy('SortedYBDO.txt'))
 sol=[-1]*len(conec)
 visited = [False]*len(conec)
+print((len(conec)-1)/100)
 Greedy(visited,conec,dst,0,0,sol,0)
-print(sol)
+print("Termino")
 
