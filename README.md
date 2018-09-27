@@ -35,7 +35,7 @@ El tiempo asintótico que presenta el UCS es de si el factor de bifurcación es 
 
 Entonces, supongamos que la búsqueda se detiene después de que alcanzas el nivel k. Cuando esto sucede, la cantidad total de nodos que habrá visitado será    
 1 + b + b2 + ... + bk = (bk+1 - 1) / (b - 1)
-##### Backtraking 
+##### Backtraking (Greedy Search)
 O(n)=n!   
 En caso de que cada nodo solo se conecte por 10 caminos con otros 10 nodos el O(n)=10^n
 ##### Branch & Bound
