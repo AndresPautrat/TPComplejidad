@@ -26,10 +26,11 @@ segs=[]
 fig, ax = plt.subplots()
 
 #CONVERTIR LA RUTA EN LISTA DE SEGMENTOS
-cpsIter=iter(cps)       
+cpsIter=iter(cps) 
 for v in ways:
     xi,yi=next(cpsIter)
-    segs.append([(xi,yi),cps[v]])
+    if v!=-1:
+        segs.append([(xi,yi),cps[v]])
 
 #Graficado
 
