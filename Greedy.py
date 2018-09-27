@@ -1,4 +1,3 @@
-
 import heapq as hp
 from math import sqrt
 def asd(x):
@@ -51,12 +50,22 @@ def Greedy(visited,conex,distancias,init,actual,sol,paso):
                 break
             else: visited[dsts[j][0]]=False
     return completado
-    
+
+def CrearTxt(lista,filename, listaux): 
+    file = open(filename,"w")
+    for i in range(len(lista)-1):
+        listaux[lista[i]]=lista[i+1]
+    for i in listaux:
+        file.write(str(i))
+        file.write('\n')
+    file.close()
+
 conec=LeerListAP("LAP2.txt")
 dst=distancias_init(0,Leerxy('SortedYBDO.txt'))
 sol=[-1]*len(conec)
 visited = [False]*len(conec)
-print((len(conec)-1)/100)
+listaux = [-1]*len(a)
 Greedy(visited,conec,dst,0,0,sol,0)
+CrearTxt(sol,'Greedy.txt',listaux)
 print("Termino")
-
+print(sol)
